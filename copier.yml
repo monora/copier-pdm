@@ -23,18 +23,22 @@ project_name:
 
 project_description:
   type: str
+  default: "{{ project_name }}"
   help: Your project description
 
 author_fullname:
   type: str
+  default: Horst Duchene
   help: Your full name
 
 author_email:
   type: str
+  default: monora@gmail.com
   help: Your email
 
 author_username:
   type: str
+  default: monora
   help: Your username (e.g. on GitHub)
 
 repository_namespace:
@@ -60,7 +64,7 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2022"
+  default: "2023"
 
 copyright_license:
   type: str
@@ -105,7 +109,7 @@ python_package_import_name:
 python_package_requires_python:
   type: str
   help: The python version range your project supports
-  default: ">=3.7"
+  default: ">=3.9"
 
 build_doc:
   type: bool
