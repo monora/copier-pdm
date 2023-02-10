@@ -22,7 +22,6 @@ The template project uses [PDM](https://pdm.fming.dev) setup, with pre-defined `
 
 - Documentation is built with [MkDocs](https://github.com/mkdocs/mkdocs)
   ([Material theme](https://github.com/squidfunk/mkdocs-material)
-- Changelog is auto-generated from the fragments under `news` directory, with the power of [towncrier](https://pypi.org/project/towncrier/)
 
 ### Pre-commit and linter
 

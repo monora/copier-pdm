@@ -22,7 +22,7 @@ classifiers = [
 Repository = "https://github.com/{{ repository_namespace }}/{{ repository_name }}"
 Homepage = "https://github.com/{{ repository_namespace }}/{{ repository_name }}"
 
-[tool.pdm]
+[tool.pdm.build]
 version = {use_scm = true}
 package-dir = "src"
 
@@ -31,7 +31,6 @@ test = [
     "pytest>=6.1",
 ]
 dev = [
-    "towncrier>=19.2",
     "parver>=0.3",
 ]
 {% if build_doc %}
@@ -64,46 +63,6 @@ exclude = '''
 )/
 '''
 
-[tool.towncrier]
-package = "{{python_package_import_name}}"
-filename = "CHANGELOG.md"
-issue_format = "{{'[#{issue}]'}}(https://github.com/{{ repository_namespace }}/{{ repository_name }}/issues/{issue})"
-directory = "news/"
-start_string = "<!-- insertion marker -->"
-title_format = "[v{version}](https://github.com/{{ repository_namespace }}/{{ repository_name }}/releases/tag/{version}) ({project_date})"
-template = "news/towncrier_template.md"
-underlines = "-~^"
-
-[[tool.towncrier.type]]
-directory = "feature"
-name = "Features & Improvements"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "bugfix"
-name = "Bug Fixes"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "doc"
-name = "Improved Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "dep"
-name = "Dependencies"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "removal"
-name = "Removals and Deprecations"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "misc"
-name = "Miscellany"
-showcontent = true
-
 [tool.isort]
 profile = "black"
 atomic = true
@@ -115,3 +74,4 @@ known_first_party = ["{{python_package_import_name}}"]
 filterwarnings = [
   "ignore::DeprecationWarning"
 ]
+addopts = "--ignore=__pypackages__"
