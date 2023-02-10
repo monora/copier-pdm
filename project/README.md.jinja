@@ -13,6 +13,8 @@
 
 ## Installation
 
+### Pipx
+
 It is recommended to install with `pipx`, if `pipx` haven't been installed yet, refer to the [pipx's docs](https://github.com/pipxproject/pipx)
 
 ```bash
@@ -23,4 +25,30 @@ Alternatively, install with `pip` to the user site:
 
 ```bash
 $ python -m pip install --user {{ python_package_distribution_name }}
+```
+
+### Direnv
+
+To use `.envrc` you have to install [direnv](https://direnv.net/) with the
+following additions in `~/.direnvrc` (see also [Python with
+direnv](https://github.com/direnv/direnv/wiki/Python)).
+
+This sets [[https://pdm.fming.dev/latest/usage/pep582/][PEP 582]] locally for
+the project and adds `__pypackages__/bin` to your `PATH`. Thus a virtualenv is
+not needed to work in an isolated environment (see [You don't really need a
+virtualenv | Frost's Blog](https://frostming.com/2021/01-22/introducing-pdm/)).
+
+```bash
+layout_pdm() {
+    PYPROJECT_TOML="${PYPROJECT_TOML:-pyproject.toml}"
+    if [ ! -f "$PYPROJECT_TOML" ]; then
+        log_status "No pyproject.toml found. Executing \`pmd init\` to create a \`$PYPROJECT_TOML\` first."
+        pdm init --non-interactive --python "$(python3 --version 2>/dev/null | cut -d' ' -f2 | cut -d. -f1-2)"
+    fi
+
+    eval "$(pdm --pep582)"
+
+    PATH_add "$(pdm info --packages)/bin"
+    export PDM_ACTIVE=1
+}
 ```
