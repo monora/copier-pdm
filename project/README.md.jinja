@@ -27,18 +27,29 @@ Alternatively, install with `pip` to the user site:
 $ python -m pip install --user {{ python_package_distribution_name }}
 ```
 
-### Direnv
+## Development
 
-To use `.envrc` you have to install [direnv](https://direnv.net/) with the
-following additions in `~/.direnvrc` (see also [Python with
+### Direnv and pyenv
+
+To use `.envrc` you have to install [direnv](https://direnv.net/) and
+[pyenv](https://github.com/pyenv/pyenv) with the following additions in
+`~/.direnvrc` (see also [Python with
 direnv](https://github.com/direnv/direnv/wiki/Python)).
 
-This sets [[https://pdm.fming.dev/latest/usage/pep582/][PEP 582]] locally for
-the project and adds `__pypackages__/bin` to your `PATH`. Thus a virtualenv is
-not needed to work in an isolated environment (see [You don't really need a
+This sets [https://pdm.fming.dev/latest/usage/pep582/](PEP 582) locally for the
+project and adds `__pypackages__/bin` to your `PATH`. Thus a virtualenv is not
+needed to work in an isolated environment (see [You don't really need a
 virtualenv | Frost's Blog](https://frostming.com/2021/01-22/introducing-pdm/)).
 
 ```bash
+# use a certain pyenv version
+use_python() {
+    if [ -n "$(which pyenv)" ]; then
+        local pyversion=$1
+        pyenv local ${pyversion}
+    fi
+}
+
 layout_pdm() {
     PYPROJECT_TOML="${PYPROJECT_TOML:-pyproject.toml}"
     if [ ! -f "$PYPROJECT_TOML" ]; then

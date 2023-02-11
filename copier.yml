@@ -13,6 +13,7 @@ _migrations:
 _tasks:
   - git init
   - pdm config --local python.use_venv False
+  - pdm add "typer[all]"
   - pdm install
   - pdm run python tasks/_post_generation.py
   - git add .
@@ -106,6 +107,11 @@ python_package_import_name:
   type: str
   help: Your Python package import name (for `import NAME` in Python code)
   default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
+
+python_package_app_name:
+  type: str
+  help: Your Python application name (see cli.py)
+  default: "{{ python_package_distribution_name }}"
 
 python_package_requires_python:
   type: str

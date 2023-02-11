@@ -40,6 +40,11 @@ The `.vscode/settings.json` will also be generated with the project, to enable P
 - Tests run with [pytest](https://pytest.org/)
 - Multi-environment testing powered by [nox](https://nox.thea.codes/)
 
+### Typer
+
+The generated project has a template for a CLI which uses
+[Typer](https://typer.tiangolo.com/).
+
 ## Requirements
 
 Make below requirements are met to use the copier template:
@@ -47,17 +52,23 @@ Make below requirements are met to use the copier template:
 - Python 3
 - Git
 - [Copier](https://copier.readthedocs.io/en/stable/)
+- [PDM](https://pdm.fming.dev)
+
+### Optional
+
+- [direnv](https://direnv.net/)
+- [pyenv](https://github.com/pyenv/pyenv)
 
 ## Quick Start
 
 ```bash
-copier "https://github.com/pdm-project/copier-pdm.git" <project_name>
+copier "https://github.com/monora/copier-pdm.git" <project_name>
 ```
 
 Or even shorter:
 
 ```bash
-copier "gh:pdm-project/copier-pdm" <project_name>
+copier "gh:monora/copier-pdm" <project_name>
 ```
 
 See the [documentation](https://copier-pdm.fming.dev) for more details.

@@ -22,6 +22,9 @@ classifiers = [
 Repository = "https://github.com/{{ repository_namespace }}/{{ repository_name }}"
 Homepage = "https://github.com/{{ repository_namespace }}/{{ repository_name }}"
 
+[project.scripts]
+{{ python_package_app_name }} = "{{ python_package_import_name }}.cli:app"
+
 [tool.pdm.build]
 version = {use_scm = true}
 package-dir = "src"
