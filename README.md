@@ -1,6 +1,6 @@
 # Copier PDM
 
-Copier template for PDM projects.
+[Copier](https://copier.readthedocs.io/en/stable/) template for PDM projects.
 
 This copier template is mainly for my own usage, but feel free to try it out, or fork it!
 
@@ -21,7 +21,7 @@ The template project uses [PDM](https://pdm.fming.dev) setup, with pre-defined `
 ### Documentation and changelog
 
 - Documentation is built with [MkDocs](https://github.com/mkdocs/mkdocs)
-  ([Material theme](https://github.com/squidfunk/mkdocs-material)
+  ([Material theme](https://github.com/squidfunk/mkdocs-material))
 
 ### Pre-commit and linter
 
