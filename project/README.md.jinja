@@ -65,3 +65,22 @@ layout_pdm() {
     export PDM_ACTIVE=1
 }
 ```
+
+### Serving docs
+
+To use the mkdocs template you should install `mkdocs` with
+[pipx](https://pypi.org/project/pipx/) first:
+
+```bash
+pipx install mkdocs
+pipx inject mkdocs mkdocs-material
+```
+
+The configuration for `mkdocs` is in the `docs` folder. To preview the
+documentation:
+
+```bash
+pdm run doc
+```
+
+Visit http://127.0.0.1:8000
