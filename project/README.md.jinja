@@ -60,6 +60,8 @@ layout_pdm() {
     eval "$(pdm --pep582)"
 
     PATH_add "$(pdm info --packages)/bin"
+    # Let IDEs know where libraries are located
+    path_add PYTHONPATH "$(pdm info --packages)/lib"
     export PDM_ACTIVE=1
 }
 ```

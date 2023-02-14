@@ -25,7 +25,7 @@ project_name:
 
 project_description:
   type: str
-  default: "{{ project_name }}"
+  default: "TODO: Description of {{ project_name }}"
   help: Your project description
 
 author_fullname:

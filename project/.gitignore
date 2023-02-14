@@ -11,10 +11,6 @@ pip-wheel-metadata/
 docs/_build/
 docs/site
 
-.venv/
-venv/
-env/
-
 .pdm.toml
 __pypackages__/
 
