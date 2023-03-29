@@ -6,7 +6,7 @@ app = typer.Typer()
 
 
 @app.command()
-def main(msg: str = typer.Option("World", help="Help for option msg")): # noqa: B008
+def main(msg: str = typer.Option("World", help="Help for option msg")):  # noqa: B008
     """The CLI entry function
 
     This function is executed when you type `{{ python_package_app_name }}`.

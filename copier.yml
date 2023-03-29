@@ -13,7 +13,6 @@ _migrations:
 _tasks:
   - git init
   - pdm config --local python.use_venv False
-  - pdm add "typer[all]"
   - pdm install
   - pdm run python tasks/_post_generation.py
   - git add .
@@ -27,6 +26,14 @@ project_description:
   type: str
   default: "TODO: Description of {{ project_name }}"
   help: Your project description
+
+project_type:
+  help: "Project type"
+  type: "str"
+  choices:
+  - "bin"
+  - "lib"
+  default: "bin"
 
 author_fullname:
   type: str
@@ -111,6 +118,7 @@ python_package_import_name:
 python_package_app_name:
   type: str
   help: Your Python application name (see cli.py)
+  when: "{{ project_type == 'bin' }}"
   default: "{{ python_package_distribution_name }}"
 
 python_package_requires_python:
