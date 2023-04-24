@@ -14,7 +14,6 @@ _tasks:
   - git init
   - pdm config --local python.use_venv False
   - pdm install
-  - pdm run python tasks/_post_generation.py
   - git add .
 
 # PROMPT --------------------------------
