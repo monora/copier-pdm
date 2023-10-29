@@ -54,13 +54,13 @@ Make below requirements are met to use the copier template:
 ## Quick Start
 
 ```bash
-copier "https://github.com/monora/copier-pdm.git" <project_name>
+copier copy "https://github.com/monora/copier-pdm.git" <project_name>
 ```
 
 Or even shorter:
 
 ```bash
-copier "gh:monora/copier-pdm" <project_name>
+copier copy "gh:monora/copier-pdm" <project_name>
 ```
 
 See the [documentation](https://copier-pdm.fming.dev) for more details.
